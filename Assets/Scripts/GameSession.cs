@@ -45,8 +45,7 @@ public class GameSession : MonoBehaviour
     private void TakeLife()
     {
         playerLives--;
-        int indexofCurrentScene = SceneManager.GetActiveScene().buildIndex;
-       
+        int indexofCurrentScene = SceneManager.GetActiveScene().buildIndex;    
         SceneManager.LoadScene(indexofCurrentScene);
     }
 
