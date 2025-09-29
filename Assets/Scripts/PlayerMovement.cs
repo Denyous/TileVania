@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] PlayerInput characterController;
     [SerializeField] GameObject bumerang;
     [SerializeField] Transform bumerangLocation;
+    [SerializeField] GameSession takeLive;
 
     private bool hasHorizontalSpeed;
     private Vector2 moveInput;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isAlive = true;
     [SerializeField] int bulletRight = 5;
     private int bulletCount = 0;
+
 
 
 
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<PlayerInput>();
         playerSprite = GetComponent<SpriteRenderer>();
         deathstate = GameObject.Find("GameManager").GetComponent<DeathState>();
+        takeLive = GameObject.Find("GameSession").GetComponent<GameSession>();
 
 
     }
@@ -195,9 +198,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("IsDead");
         playerSprite.color = Color.red;
         playerRb.linearVelocity = deathKick;
-        Destroy(gameObject, 0.4f);
-
-        // DeathState.DeadScreen();
+        
+        takeLive.PlayerDeathState();
+        
+        
+       
 
     }
 
