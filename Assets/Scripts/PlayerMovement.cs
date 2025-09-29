@@ -194,6 +194,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+  
+
     public void Die()
     {
         characterController.enabled = false;
@@ -201,10 +203,7 @@ public class PlayerMovement : MonoBehaviour
         playerSprite.color = Color.red;
         playerRb.linearVelocity = deathKick;
         FindObjectOfType<GameSession>().PlayerDeathState();
-    
-
-
-
+   
 
     }
 

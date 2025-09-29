@@ -7,20 +7,22 @@ using UnityEngine.SceneManagement;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] public int playerLives = 3;
+    [SerializeField] private int coinScore = 0;
 
 
     void Awake()
     {
-        int numberofSession = FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length;
+        int numberOfSessions = FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length;
 
-        if (numberofSession > 1)
+        if (numberOfSessions > 1)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // fazlaysa yok et
         }
         else
         {
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // tek olanı koru
         }
+        
     }
 
 
@@ -54,6 +56,12 @@ public class GameSession : MonoBehaviour
         
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+    }
+
+    public void ScoreUpdate()
+    {
+        coinScore++;
+        Debug.Log("Coin : " + coinScore);
     }
 
   

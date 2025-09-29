@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - Gun
   - Exit
+  - Coin
+  - Collect
   layers:
   - Default
   - TransparentFX
@@ -26,8 +28,8 @@ TagManager:
   - Enemies
   - Hazards
   - Bumerang
-  - 
-  - 
+  - ColectCollision
+  - Interactibles
   - 
   - 
   - 

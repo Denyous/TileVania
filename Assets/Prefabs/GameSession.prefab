@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a196c83f57bce594f9f2dd01932243e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 3
+  playerLives: 4
