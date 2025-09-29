@@ -8,12 +8,14 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] float bulletSpeed;
     float xSpeed;
     [SerializeField] PlayerMovement player;
+    private AudioManager audioManager;
     void Start()
     {
         bulletrb = GetComponent<Rigidbody2D>();
         bulletCollider = GetComponent<CapsuleCollider2D>();
         player = GameObject.Find("Şevket (Player)").GetComponent<PlayerMovement>();
-        
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
     }
 
     
@@ -36,7 +38,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            
+            audioManager.PlaySFX(audioManager.enemyKill);
             Destroy(collision.gameObject);
         }
     }

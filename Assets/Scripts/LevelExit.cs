@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
     private int currentSceneIndex;
+    private AudioManager audioManager;
 
     private void Start()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +31,7 @@ public class LevelExit : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
+        audioManager.PlaySFX(audioManager.exit);
         SceneManager.LoadScene(nextSceneIndex);
     }
    

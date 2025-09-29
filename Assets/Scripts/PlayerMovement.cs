@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject bumerang;
     [SerializeField] Transform bumerangLocation;
     [SerializeField] GameSession gameSession;
+    private AudioManager audioManager;
 
     private bool hasHorizontalSpeed;
     private Vector2 moveInput;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private float baseGravityScale;
     private float gravityScale;
     private bool isAlive = true;
-    [SerializeField] int bulletRight = 5;
+    [SerializeField] int bulletRight = 6;
     private int bulletCount = 0;
 
 
@@ -46,9 +47,9 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<PlayerInput>();
         playerSprite = GetComponent<SpriteRenderer>();
         deathstate = GameObject.Find("GameManager").GetComponent<DeathState>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
 
-        
-        
+
 
 
     }
@@ -119,14 +120,17 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack(InputValue value)
     {
-        if (bulletCount<= bulletRight)
+        if (bulletCount <= bulletRight)
         {
-            Instantiate(bumerang, bumerangLocation.position, transform.rotation);
             bulletCount++;
+           
+            Instantiate(bumerang, bumerangLocation.position, transform.rotation);
+           
+            
         }
         else
         {
-            Debug.Write("you cannot shoot anymore!");
+            
         }
         
 
@@ -190,6 +194,11 @@ public class PlayerMovement : MonoBehaviour
                 Die();
 
             }
+        }
+
+        if (collision.gameObject.CompareTag("Bounc"))
+        {
+            audioManager.PlaySFX(audioManager.bouncing);
         }
 
     }

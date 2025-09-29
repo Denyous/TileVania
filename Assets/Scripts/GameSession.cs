@@ -8,6 +8,7 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] public int playerLives = 3;
     [SerializeField] private int coinScore = 0;
+    [SerializeField] public int boomerangCount = 6;
 
 
     void Awake()
@@ -64,7 +65,7 @@ public class GameSession : MonoBehaviour
         Debug.Log("Coin : " + coinScore);
     }
 
-  
+   
 
 
 
