@@ -12,11 +12,15 @@ public class GameSession : MonoBehaviour
     [SerializeField] public int boomerangCount = 6;
     [SerializeField] public TextMeshProUGUI liveText;
     [SerializeField] public TextMeshProUGUI scoreText;
+    [SerializeField] GameObject gameoverScreen;
+    AudioManager audioManager;
+    
 
 
 
     private void Start()
     {
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         scoreText.text = "Coin: " + coinScore.ToString();
         liveText.text = "Live: " + playerLives.ToString();
 
@@ -49,8 +53,10 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            audioManager.PlaySFX(audioManager.gameOver);
             FindObjectOfType<ScenePersist>().DestroyPersist();
-            ResetSession();
+            Time.timeScale = 0;
+            gameoverScreen.SetActive(true);
 
         }
 
@@ -67,11 +73,13 @@ public class GameSession : MonoBehaviour
         SceneManager.LoadScene(indexofCurrentScene);
     }
 
-    private void ResetSession()
+    public void ResetSession()
     {
 
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+        Time.timeScale = 1;
+
     }
 
     public void ScoreUpdate(int amount)

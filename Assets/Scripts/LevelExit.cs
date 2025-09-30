@@ -10,6 +10,7 @@ public class LevelExit : MonoBehaviour
     private void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
