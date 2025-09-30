@@ -74,9 +74,9 @@ public class GameSession : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void ScoreUpdate()
+    public void ScoreUpdate(int amount)
     {
-        coinScore++;
+        coinScore = amount + coinScore;
         Debug.Log("Coin : " + coinScore);
         scoreText.text = "Coin: " + coinScore.ToString();
     }

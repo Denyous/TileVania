@@ -3,6 +3,7 @@ using UnityEngine;
 public class CoinCollect : MonoBehaviour
 {
     private AudioManager audioManager;
+    [SerializeField] public  int point;
    
     void Start()
     {
@@ -13,7 +14,7 @@ public class CoinCollect : MonoBehaviour
     {
         if(collision.CompareTag("Collect"))
         {
-            FindObjectOfType<GameSession>().ScoreUpdate(); // Score update oluyor
+            FindObjectOfType<GameSession>().ScoreUpdate(point); // Score update oluyor
 
             audioManager.PlaySFX(audioManager.coinCollect);
 
