@@ -82,6 +82,13 @@ public class GameSession : MonoBehaviour
     }
 
 
+    public void PlayerLiveUpdate()
+    {
+        playerLives++;
+        liveText.text = "Live: " + playerLives.ToString();
+    }
+
+
 
 
 

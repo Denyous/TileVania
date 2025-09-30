@@ -15,6 +15,7 @@ TagManager:
   - Collect
   - Audio
   - Bounc
+  - Heart
   layers:
   - Default
   - TransparentFX
