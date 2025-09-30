@@ -31,6 +31,7 @@ public class LevelExit : MonoBehaviour
         {
             nextSceneIndex = 0;
         }
+        FindObjectOfType<ScenePersist>().DestroyPersist();
         audioManager.PlaySFX(audioManager.exit);
         SceneManager.LoadScene(nextSceneIndex);
     }
