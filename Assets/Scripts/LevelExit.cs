@@ -30,7 +30,7 @@ public class LevelExit : MonoBehaviour
 
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
-            nextSceneIndex = 0;
+            Time.timeScale = 0;
         }
         FindObjectOfType<ScenePersist>().DestroyPersist();
         audioManager.PlaySFX(audioManager.exit);
