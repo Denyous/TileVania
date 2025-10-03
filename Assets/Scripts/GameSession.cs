@@ -101,15 +101,13 @@ public class GameSession : MonoBehaviour
     {
         finishScreen.SetActive(true);
         audioManager.PlaySFX(audioManager.finishGame);
-        Time.timeScale = 0;
+        
     }
 
     public void ReplayButton()
     {
-
-        SceneManager.LoadScene(0);
-        finishScreen.SetActive(false);
-        Time.timeScale = 1;
+        ResetSession();
+        FindObjectOfType<ScenePersist>().DestroyPersist();
     }
 
 
