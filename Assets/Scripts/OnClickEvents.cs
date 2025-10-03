@@ -2,12 +2,14 @@
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OnClickEvents : MonoBehaviour
 {
 
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject countdownText;
+    [SerializeField] GameObject finishScreen;
 
     void Start()
     {
@@ -68,4 +70,6 @@ public class OnClickEvents : MonoBehaviour
         Time.timeScale = 1f; // oyun devam etsin
     }
 
+
+    
 }

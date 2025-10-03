@@ -13,6 +13,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] public TextMeshProUGUI liveText;
     [SerializeField] public TextMeshProUGUI scoreText;
     [SerializeField] GameObject gameoverScreen;
+    [SerializeField] GameObject finishScreen;
     AudioManager audioManager;
     
 
@@ -96,8 +97,20 @@ public class GameSession : MonoBehaviour
         liveText.text = "Live: " + playerLives.ToString();
     }
 
+    public void FinishGameScreen()
+    {
+        finishScreen.SetActive(true);
+        audioManager.PlaySFX(audioManager.finishGame);
+        Time.timeScale = 0;
+    }
 
+    public void ReplayButton()
+    {
 
+        SceneManager.LoadScene(0);
+        finishScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
 
 
 }
