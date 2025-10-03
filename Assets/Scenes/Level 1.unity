@@ -28640,7 +28640,7 @@ Camera:
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
+  m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &519420032
@@ -28652,7 +28652,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3445644, y: 1.4719934, z: 55.772335}
+  m_LocalPosition: {x: -5.0587616, y: 1.4721932, z: 55.772335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35368,6 +35368,8 @@ MonoBehaviour:
   - Hash: -387607673
     HashOfParent: 756556552
   - Hash: 1512870740
+    HashOfParent: 756556552
+  - Hash: -524152464
     HashOfParent: 756556552
   m_LegacyLookAt: {fileID: 0}
   m_LegacyFollow: {fileID: 0}

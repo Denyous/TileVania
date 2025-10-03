@@ -25,7 +25,7 @@ public class LevelExit : MonoBehaviour
 
     IEnumerator GetToNextScene()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.3f);
 
         int nextSceneIndex = currentSceneIndex + 1;
 

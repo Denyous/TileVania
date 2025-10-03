@@ -39,12 +39,12 @@ public class OnClickEvents : MonoBehaviour
 
     public void QuitButtonOnClick()
     {
-       UnityEditor.EditorApplication.isPlaying = false;
+       Application.Quit();
     }
 
     public void MainMenuOnClicked()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     private IEnumerator ResumeCountdown()
